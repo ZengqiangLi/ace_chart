@@ -34,18 +34,19 @@ mixin AceHistogram {
     }
   }
 
-  void drawCandle(
-      {required Canvas canvas,
-      required PaintingStyle style,
-      required double strokeWidth,
-      required double scale,
-      required Color color,
-      required double dx,
-      required double width,
-      required double highY,
-      required double lowY,
-      required double closeY,
-      required double openY}) {
+  void drawCandle({
+    required Canvas canvas,
+    required PaintingStyle style,
+    required double strokeWidth,
+    required double scale,
+    required Color color,
+    required double dx,
+    required double width,
+    required double highY,
+    required double lowY,
+    required double closeY,
+    required double openY,
+  }) {
     if (highY.isNaN || highY.isInfinite) {
       return;
     }

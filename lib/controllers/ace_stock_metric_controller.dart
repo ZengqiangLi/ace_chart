@@ -14,19 +14,20 @@ class AceStockMetricController extends AceController<AceEntity>
   final bool useAverage;
   final List<int> maDays;
   final List<int> rsiDays;
-  AceStockMetricController(
-      {super.maxScale,
-      this.useVOLMA = false,
-      this.useMACD = false,
-      this.useKdj = false,
-      this.useAverage = false,
-      this.rsiDays = const [1, 6, 12],
-      this.maDays = const [5, 10, 20, 30],
-      super.pointWidth = 1,
-      super.pointSpace,
-      super.paddingRight = 0,
-      super.onScrollBoundary,
-      required super.maxLength});
+  AceStockMetricController({
+    super.maxScale,
+    this.useVOLMA = false,
+    this.useMACD = false,
+    this.useKdj = false,
+    this.useAverage = false,
+    this.rsiDays = const [1, 6, 12],
+    this.maDays = const [5, 10, 20, 30],
+    super.pointWidth = 1,
+    super.pointSpace,
+    super.paddingRight = 0,
+    super.onScrollBoundary,
+    required super.maxLength,
+  });
   @override
   void addAll(List<AceEntity> vals) {
     testMostRightNotifyChanged(() {

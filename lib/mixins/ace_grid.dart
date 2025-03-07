@@ -5,15 +5,16 @@ import 'package:flutter/material.dart';
 mixin AceGrid on BasePainter {
   Paint? _paint;
 
-  void drawGrid(
-      {required Canvas canvas,
-      required double canvasWidth,
-      required double canvasHeight,
-      required int verticalGrids,
-      required int horizontalGrids,
-      required Color lineColor,
-      required double strokeWidth,
-      required double paddingTop}) {
+  void drawGrid({
+    required Canvas canvas,
+    required double canvasWidth,
+    required double canvasHeight,
+    required int verticalGrids,
+    required int horizontalGrids,
+    required Color lineColor,
+    required double strokeWidth,
+    required double paddingTop,
+  }) {
     _paint ??= Paint()
       ..isAntiAlias = true
       ..color = lineColor

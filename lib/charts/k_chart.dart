@@ -36,43 +36,44 @@ class KChart extends AceWidget<AceEntity> {
   final Color averageLineColor;
   final String Function(int time) transformTime;
   final void Function(int index, MainAxisAlignment alignment)? onCrossChange;
-  const KChart(
-      {super.key,
-      super.child,
-      this.paddingTop = 0,
-      this.strokeWidth = 1,
-      this.gridLineColor = Colors.black12,
-      this.gridLineWidth = 0.5,
-      this.gridHorizontalGrids = 3,
-      this.gridVerticalGrids = 3,
-      this.gridUpperStyle = const TextStyle(color: Colors.black45, fontSize: 8),
-      this.gridlowerStyle = const TextStyle(color: Colors.black45, fontSize: 8),
-      this.averageLineColor = Colors.red,
-      this.upperColor = Colors.red,
-      this.lowerColor = Colors.green,
-      this.upperStyle = PaintingStyle.stroke,
-      this.lowerStyle = PaintingStyle.fill,
-      this.horizontalTextStyle =
-          const TextStyle(color: Colors.black45, fontSize: 8),
-      this.maDayColors = const [
-        Colors.yellow,
-        Colors.blue,
-        Colors.deepOrange,
-        Colors.indigo
-      ],
-      this.maStrokeWidth = 0.5,
-      this.crossLowerTextStyle = const TextStyle(fontSize: 8),
-      this.crossUpperTextStyle = const TextStyle(fontSize: 8),
-      this.crossTextBgColor = Colors.green,
-      this.crossTextBorderColor = Colors.black,
-      this.crossLineColor = Colors.red,
-      this.crossLineWidth = 0.5,
-      this.onCrossChange,
-      this.highMarkColor = Colors.black,
-      this.lowMarkColor = Colors.black,
-      this.markSize = 7,
-      this.showCrossText = true,
-      required this.transformTime});
+  const KChart({
+    super.key,
+    super.child,
+    this.paddingTop = 0,
+    this.strokeWidth = 1,
+    this.gridLineColor = Colors.black12,
+    this.gridLineWidth = 0.5,
+    this.gridHorizontalGrids = 3,
+    this.gridVerticalGrids = 3,
+    this.gridUpperStyle = const TextStyle(color: Colors.black45, fontSize: 8),
+    this.gridlowerStyle = const TextStyle(color: Colors.black45, fontSize: 8),
+    this.averageLineColor = Colors.red,
+    this.upperColor = Colors.red,
+    this.lowerColor = Colors.green,
+    this.upperStyle = PaintingStyle.stroke,
+    this.lowerStyle = PaintingStyle.fill,
+    this.horizontalTextStyle =
+        const TextStyle(color: Colors.black45, fontSize: 8),
+    this.maDayColors = const [
+      Colors.yellow,
+      Colors.blue,
+      Colors.deepOrange,
+      Colors.indigo
+    ],
+    this.maStrokeWidth = 0.5,
+    this.crossLowerTextStyle = const TextStyle(fontSize: 8),
+    this.crossUpperTextStyle = const TextStyle(fontSize: 8),
+    this.crossTextBgColor = Colors.green,
+    this.crossTextBorderColor = Colors.black,
+    this.crossLineColor = Colors.red,
+    this.crossLineWidth = 0.5,
+    this.onCrossChange,
+    this.highMarkColor = Colors.black,
+    this.lowMarkColor = Colors.black,
+    this.markSize = 7,
+    this.showCrossText = true,
+    required this.transformTime,
+  });
 
   @override
   State<StatefulWidget> createState() => KChartState();

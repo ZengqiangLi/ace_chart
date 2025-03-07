@@ -6,23 +6,24 @@ import 'package:flutter/material.dart';
 
 /// 双极柱状图
 class BipolarChart<T> extends BarChart<T> {
-  const BipolarChart(
-      {super.key,
-      super.child,
-      super.upperColor = Colors.red,
-      super.fairColor = Colors.black45,
-      super.lowerColor = Colors.green,
-      super.strokeWidth = 1,
-      super.upperStyle = PaintingStyle.fill,
-      super.fairStyle = PaintingStyle.fill,
-      super.lowerStyle = PaintingStyle.fill,
-      super.crossLineColor = Colors.red,
-      super.crossLineWidth = 0.5,
-      required super.transform,
-      required super.transformBarStyle,
-      super.textStyle,
-      super.paddingTop,
-      super.showText});
+  const BipolarChart({
+    super.key,
+    super.child,
+    super.upperColor = Colors.red,
+    super.fairColor = Colors.black45,
+    super.lowerColor = Colors.green,
+    super.strokeWidth = 1,
+    super.upperStyle = PaintingStyle.fill,
+    super.fairStyle = PaintingStyle.fill,
+    super.lowerStyle = PaintingStyle.fill,
+    super.crossLineColor = Colors.red,
+    super.crossLineWidth = 0.5,
+    required super.transform,
+    required super.transformBarStyle,
+    super.textStyle,
+    super.paddingTop,
+    super.showText,
+  });
 
   @override
   State<StatefulWidget> createState() {

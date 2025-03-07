@@ -37,31 +37,32 @@ class BarChartPainter<T> extends BasePainter
   late double _width;
   late double contentHeight;
   late double _radio;
-  BarChartPainter(
-      {required this.values,
-      required super.paddingTop,
-      required super.scrollX,
-      required super.scale,
-      required super.pointSpace,
-      required super.pointWidth,
-      required this.strokeWidth,
-      required this.upperStyle,
-      required this.fairStyle,
-      required this.lowerStyle,
-      required this.upperColor,
-      required this.fairColor,
-      required this.lowerColor,
-      required this.crossLineColor,
-      required this.crossLineWidth,
-      required this.gridHorizontalGrids,
-      required this.gridVerticalGrids,
-      required this.gridLineColor,
-      required this.gridLineWidth,
-      required this.transform,
-      required this.transformBarStyle,
-      required this.textStyle,
-      required this.showText,
-      super.pressOffset}) {
+  BarChartPainter({
+    required this.values,
+    required super.paddingTop,
+    required super.scrollX,
+    required super.scale,
+    required super.pointSpace,
+    required super.pointWidth,
+    required this.strokeWidth,
+    required this.upperStyle,
+    required this.fairStyle,
+    required this.lowerStyle,
+    required this.upperColor,
+    required this.fairColor,
+    required this.lowerColor,
+    required this.crossLineColor,
+    required this.crossLineWidth,
+    required this.gridHorizontalGrids,
+    required this.gridVerticalGrids,
+    required this.gridLineColor,
+    required this.gridLineWidth,
+    required this.transform,
+    required this.transformBarStyle,
+    required this.textStyle,
+    required this.showText,
+    super.pressOffset,
+  }) {
     _width = pointWidth * 0.5;
   }
 

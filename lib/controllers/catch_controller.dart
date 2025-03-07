@@ -11,7 +11,9 @@ class CatchController {
   bool canDrag = false;
   double distance = 0;
   ScrollHoldController? hold;
-  CatchController({this.parentDrag = CatchParentDrag.none});
+  CatchController({
+    this.parentDrag = CatchParentDrag.none,
+  });
 
   void next(CatchParentDrag d) {
     parentDrag = d;

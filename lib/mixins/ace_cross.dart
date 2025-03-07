@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 
 mixin AceCross {
   final Paint _paint = Paint()..style = PaintingStyle.fill;
-  void _drawBorderRRect(
-      {required Canvas canvas,
-      required RRect rrect,
-      required Color bgColor,
-      required Color borderColor,
-      double borderWidth = 0.3}) {
+  void _drawBorderRRect({
+    required Canvas canvas,
+    required RRect rrect,
+    required Color bgColor,
+    required Color borderColor,
+    double borderWidth = 0.3,
+  }) {
     _paint.color = bgColor;
     _paint.style = PaintingStyle.fill;
     _paint.strokeWidth = 1;

@@ -26,28 +26,29 @@ class MacdChart extends AceWidget<AceEntity> {
   final TextStyle textStyle;
   final bool showText;
   final double paddingTop;
-  const MacdChart(
-      {super.key,
-      super.child,
-      this.paddingTop = 0,
-      this.upperColor = Colors.red,
-      this.fairColor = Colors.black45,
-      this.lowerColor = Colors.green,
-      this.strokeWidth = 1,
-      this.gridLineColor = Colors.black12,
-      this.gridLineWidth = 0.5,
-      this.gridHorizontalGrids = 3,
-      this.gridVerticalGrids = 3,
-      this.upperStyle = PaintingStyle.fill,
-      this.fairStyle = PaintingStyle.fill,
-      this.lowerStyle = PaintingStyle.fill,
-      this.difAndDeaLineWidth = 0.5,
-      this.difLineColor = Colors.yellow,
-      this.deaLineColor = Colors.blue,
-      this.crossLineColor = Colors.red,
-      this.crossLineWidth = 0.5,
-      this.textStyle = const TextStyle(color: Colors.black, fontSize: 8),
-      this.showText = true});
+  const MacdChart({
+    super.key,
+    super.child,
+    this.paddingTop = 0,
+    this.upperColor = Colors.red,
+    this.fairColor = Colors.black45,
+    this.lowerColor = Colors.green,
+    this.strokeWidth = 1,
+    this.gridLineColor = Colors.black12,
+    this.gridLineWidth = 0.5,
+    this.gridHorizontalGrids = 3,
+    this.gridVerticalGrids = 3,
+    this.upperStyle = PaintingStyle.fill,
+    this.fairStyle = PaintingStyle.fill,
+    this.lowerStyle = PaintingStyle.fill,
+    this.difAndDeaLineWidth = 0.5,
+    this.difLineColor = Colors.yellow,
+    this.deaLineColor = Colors.blue,
+    this.crossLineColor = Colors.red,
+    this.crossLineWidth = 0.5,
+    this.textStyle = const TextStyle(color: Colors.black, fontSize: 8),
+    this.showText = true,
+  });
 
   @override
   State<StatefulWidget> createState() => MacdChartState();

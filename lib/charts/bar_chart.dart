@@ -27,27 +27,28 @@ class BarChart<T> extends AceWidget<T> {
   final double crossLineWidth;
   final List<double> Function(List<T> values) transform;
   final BarStyle Function(T item) transformBarStyle;
-  const BarChart(
-      {super.key,
-      super.child,
-      this.upperColor = Colors.red,
-      this.fairColor = Colors.black45,
-      this.lowerColor = Colors.green,
-      this.strokeWidth = 1,
-      this.upperStyle = PaintingStyle.fill,
-      this.fairStyle = PaintingStyle.fill,
-      this.lowerStyle = PaintingStyle.fill,
-      this.crossLineColor = Colors.red,
-      this.crossLineWidth = 0.5,
-      this.textStyle = const TextStyle(color: Colors.black, fontSize: 8),
-      this.showText = true,
-      this.paddingTop = 0,
-      this.gridLineColor = Colors.black12,
-      this.gridLineWidth = 0.5,
-      this.gridHorizontalGrids = 3,
-      this.gridVerticalGrids = 3,
-      required this.transform,
-      required this.transformBarStyle});
+  const BarChart({
+    super.key,
+    super.child,
+    this.upperColor = Colors.red,
+    this.fairColor = Colors.black45,
+    this.lowerColor = Colors.green,
+    this.strokeWidth = 1,
+    this.upperStyle = PaintingStyle.fill,
+    this.fairStyle = PaintingStyle.fill,
+    this.lowerStyle = PaintingStyle.fill,
+    this.crossLineColor = Colors.red,
+    this.crossLineWidth = 0.5,
+    this.textStyle = const TextStyle(color: Colors.black, fontSize: 8),
+    this.showText = true,
+    this.paddingTop = 0,
+    this.gridLineColor = Colors.black12,
+    this.gridLineWidth = 0.5,
+    this.gridHorizontalGrids = 3,
+    this.gridVerticalGrids = 3,
+    required this.transform,
+    required this.transformBarStyle,
+  });
 
   @override
   State<StatefulWidget> createState() {

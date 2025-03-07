@@ -1,6 +1,5 @@
 import 'package:ace_chart/ace_chart.dart';
 import 'package:ace_chart/ace_state.dart';
-import 'package:ace_chart/entitys/ace_entity.dart';
 import 'package:ace_chart/painters/base_painter.dart';
 import 'package:ace_chart/painters/line_chart_painter.dart';
 import 'package:ace_chart/ace_widget.dart';
@@ -33,40 +32,40 @@ class LineChart extends AceWidget<AceEntity> {
   final String Function(int time) transformTime;
   final void Function(int index, MainAxisAlignment alignment)? onCrossChange;
 
-  LineChart(
-      {super.key,
-      super.child,
-      required this.lastClose,
-      required this.transformTime,
-      this.paddingTop = 0,
-      this.lineColor = Colors.green,
-      this.strokeWidth = 1,
-      this.gridLineColor = Colors.black12,
-      this.gridLineWidth = 0.5,
-      this.gridHorizontalGrids = 3,
-      this.gridVerticalGrids = 3,
-      this.gridUpperStyle = const TextStyle(color: Colors.red, fontSize: 8),
-      this.gridlowerStyle = const TextStyle(color: Colors.green, fontSize: 8),
-      this.centralAxisColor = Colors.black12,
-      this.centralAxisStyle =
-          const TextStyle(color: Colors.black45, fontSize: 8),
-      this.horizontalTextStyle =
-          const TextStyle(color: Colors.black45, fontSize: 8),
-      this.maDayColors = const [
-        Colors.yellow,
-        Colors.blue,
-        Colors.deepOrange,
-        Colors.indigo
-      ],
-      this.maStrokeWidth = 0.5,
-      this.averageLineColor = Colors.red,
-      this.crossLowerTextStyle = const TextStyle(fontSize: 8),
-      this.crossUpperTextStyle = const TextStyle(fontSize: 8),
-      this.crossTextBgColor = Colors.green,
-      this.crossTextBorderColor = Colors.black,
-      this.crossLineColor = Colors.red,
-      this.crossLineWidth = 0.5,
-      this.onCrossChange}) {
+  LineChart({
+    super.key,
+    super.child,
+    required this.lastClose,
+    required this.transformTime,
+    this.paddingTop = 0,
+    this.lineColor = Colors.green,
+    this.strokeWidth = 1,
+    this.gridLineColor = Colors.black12,
+    this.gridLineWidth = 0.5,
+    this.gridHorizontalGrids = 3,
+    this.gridVerticalGrids = 3,
+    this.gridUpperStyle = const TextStyle(color: Colors.red, fontSize: 8),
+    this.gridlowerStyle = const TextStyle(color: Colors.green, fontSize: 8),
+    this.centralAxisColor = Colors.black12,
+    this.centralAxisStyle = const TextStyle(color: Colors.black45, fontSize: 8),
+    this.horizontalTextStyle =
+        const TextStyle(color: Colors.black45, fontSize: 8),
+    this.maDayColors = const [
+      Colors.yellow,
+      Colors.blue,
+      Colors.deepOrange,
+      Colors.indigo
+    ],
+    this.maStrokeWidth = 0.5,
+    this.averageLineColor = Colors.red,
+    this.crossLowerTextStyle = const TextStyle(fontSize: 8),
+    this.crossUpperTextStyle = const TextStyle(fontSize: 8),
+    this.crossTextBgColor = Colors.green,
+    this.crossTextBorderColor = Colors.black,
+    this.crossLineColor = Colors.red,
+    this.crossLineWidth = 0.5,
+    this.onCrossChange,
+  }) {
     assert(
         gridHorizontalGrids != 0, "gridHorizontalGrids cannot be less than 1");
     assert(gridVerticalGrids != 0, "gridVerticalGrids cannot be less than 1");
