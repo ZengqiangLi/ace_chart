@@ -1,5 +1,4 @@
 import 'dart:math';
-import 'dart:ui';
 import 'package:ace_chart/entitys/ace_entity.dart';
 import 'package:ace_chart/mixins/ace_line.dart';
 import 'package:ace_chart/mixins/ace_cross.dart';

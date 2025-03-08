@@ -1,7 +1,6 @@
 import 'package:ace_chart/ace_chart.dart';
 import 'package:ace_chart/ace_state.dart';
 import 'package:ace_chart/ace_widget.dart';
-import 'package:ace_chart/entitys/ace_entity.dart';
 import 'package:ace_chart/painters/base_painter.dart';
 import 'package:ace_chart/painters/k_chart_painter.dart';
 import 'package:flutter/material.dart';
