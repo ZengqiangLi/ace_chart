@@ -47,6 +47,7 @@ mixin AceGrid on BasePainter {
     required double paddingTop,
     required TextStyle lowerStyle,
     required TextStyle upperStyle,
+    required TextStyle gridTextStyle,
     double? lastClose,
   }) {
     /// 绘制网格垂直线文字和涨跌比率
@@ -56,28 +57,31 @@ mixin AceGrid on BasePainter {
     for (int i = 0; i <= verticalGrids; i++) {
       double y = verticalSpace * i + paddingTop;
       double value = maxValue - space * i;
-      TextStyle style =
-          lastClose != null && value < lastClose ? lowerStyle : upperStyle;
+      TextStyle style = lastClose != null
+          ? (value < lastClose ? lowerStyle : upperStyle)
+          : gridTextStyle;
       drawGridVerticalText(
-          canvas: canvas,
-          canvasWidth: canvasWidth,
-          canvasHeight: canvasHeight + paddingTop,
-          value: value,
-          lastClose: lastClose,
-          dy: y,
-          style: style);
+        canvas: canvas,
+        canvasWidth: canvasWidth,
+        canvasHeight: canvasHeight + paddingTop,
+        value: value,
+        lastClose: lastClose,
+        dy: y,
+        style: style,
+      );
     }
   }
 
   /// 绘制垂直文字
-  void drawGridVerticalText(
-      {required Canvas canvas,
-      required double canvasWidth,
-      required double canvasHeight,
-      required double value,
-      required double dy,
-      required TextStyle style,
-      double? lastClose}) {
+  void drawGridVerticalText({
+    required Canvas canvas,
+    required double canvasWidth,
+    required double canvasHeight,
+    required double value,
+    required double dy,
+    required TextStyle style,
+    double? lastClose,
+  }) {
     if (dy.isNaN) {
       return;
     }

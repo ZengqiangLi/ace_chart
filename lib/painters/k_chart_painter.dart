@@ -31,6 +31,7 @@ class KChartPainter extends AcePainter with AceHistogram {
       required super.pointWidth,
       super.pressOffset,
       required super.paddingTop,
+      required super.gridTextStyle,
       required super.gridUpperStyle,
       required super.gridlowerStyle,
       required super.gridLineColor,

@@ -5,6 +5,10 @@ import 'package:demo/data.dart';
 import 'package:demo/data2.dart';
 import 'package:flutter/material.dart';
 
+const Color backgroundColor = Color(0xff151924);
+const Color textColor = Colors.white;
+const TextStyle style = TextStyle(color: textColor);
+
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -25,7 +29,7 @@ class _HomeState extends State<Home> {
     useVOLMA: true,
     useMACD: true,
     maxLength: list2.length,
-    maDays: [5, 10],
+    maDays: [],
     useKdj: true,
   );
   @override
@@ -56,13 +60,17 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("DEMO"),
+        title: const Text(
+          "DEMO",
+          style: style,
+        ),
+        backgroundColor: backgroundColor,
       ),
+      backgroundColor: backgroundColor,
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-           
             AceContainer(
               controller: container3,
               child: Builder(
@@ -75,11 +83,22 @@ class _HomeState extends State<Home> {
                           transformTime: (time) {
                             return millisToHM(time);
                           },
+                          lineColor: const Color(0xff697abc),
                           lastClose: 255.90,
                           gridVerticalGrids: 1,
                           gridHorizontalGrids: 2,
                           paddingTop: 20,
-                          maDayColors: [Colors.red, Colors.yellow],
+                          centralAxisStyle: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 8,
+                          ),
+                          gridLineColor: Colors.white12,
+                          crossLineColor: const Color(0xffd13e51),
+                          crossTextBgColor: const Color(0xffd13e51),
+                          horizontalTextStyle: const TextStyle(
+                            color: Color(0xff959FAE),
+                            fontSize: 8,
+                          ),
                         ),
                       ),
                       Container(
@@ -100,7 +119,12 @@ class _HomeState extends State<Home> {
                       ),
                       const SizedBox(
                         height: 80,
-                        child: MacdChart(),
+                        child: MacdChart(
+                          textStyle: TextStyle(
+                            color: Colors.white,
+                            fontSize: 8,
+                          ),
+                        ),
                       ),
                     ],
                   );
@@ -123,6 +147,19 @@ class _HomeState extends State<Home> {
                         SizedBox(
                           height: 150,
                           child: KChart(
+                            highMarkColor: Colors.white,
+                            lowMarkColor: Colors.white,
+                            crossLineColor: const Color(0xffd13e51),
+                            crossTextBgColor: const Color(0xffd13e51),
+                            gridTextStyle: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 8,
+                            ),
+                            gridLineColor: Colors.white12,
+                            horizontalTextStyle: const TextStyle(
+                              color: Color(0xff959FAE),
+                              fontSize: 8,
+                            ),
                             transformTime: (time) {
                               return millisToMD(time);
                             },
@@ -144,6 +181,10 @@ class _HomeState extends State<Home> {
                             showMaLine: true,
                             showText: false,
                             upperStyle: PaintingStyle.stroke,
+                            textStyle: TextStyle(
+                              color: Colors.white,
+                              fontSize: 8,
+                            ),
                           ),
                         ),
                         Container(
@@ -153,7 +194,12 @@ class _HomeState extends State<Home> {
                         ),
                         const SizedBox(
                           height: 80,
-                          child: MacdChart(),
+                          child: MacdChart(
+                            textStyle: TextStyle(
+                              color: Colors.white,
+                              fontSize: 8,
+                            ),
+                          ),
                         ),
                         Container(
                           height: 10,
@@ -168,9 +214,6 @@ class _HomeState extends State<Home> {
             ),
             const SizedBox(
               height: 10,
-            ),
-            const SizedBox(
-              height: 500,
             ),
           ],
         ),

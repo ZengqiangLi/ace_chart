@@ -1,6 +1,6 @@
 import 'package:ace_chart/ace_state.dart';
 import 'package:ace_chart/charts/k_chart.dart';
-import 'package:ace_chart/charts/line_chart%20.dart';
+import 'package:ace_chart/charts/line_chart.dart';
 import 'package:ace_chart/controllers/catch_controller.dart';
 import 'package:flutter/material.dart';
 

@@ -28,6 +28,7 @@ class LineChartPainter extends AcePainter {
       required super.gridLineColor,
       required super.gridVerticalGrids,
       required super.gridHorizontalGrids,
+      required super.gridTextStyle,
       required super.gridUpperStyle,
       required super.gridlowerStyle,
       required super.gridLineWidth,
@@ -118,13 +119,14 @@ class LineChartPainter extends AcePainter {
 
     canvas.restore();
     drawGridVerticalText(
-        canvas: canvas,
-        canvasWidth: canvasWidth,
-        canvasHeight: contentHeight,
-        value: lastClose!,
-        dy: valueToY(lastClose!),
-        lastClose: lastClose,
-        style: centralAxisStyle);
+      canvas: canvas,
+      canvasWidth: canvasWidth,
+      canvasHeight: contentHeight,
+      value: lastClose!,
+      dy: valueToY(lastClose!),
+      lastClose: lastClose,
+      style: centralAxisStyle,
+    );
   }
 
   /// 绘制曲线

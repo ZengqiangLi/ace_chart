@@ -16,6 +16,7 @@ class LineChart extends AceWidget<AceEntity> {
   final int gridHorizontalGrids;
   final int gridVerticalGrids;
   final TextStyle gridUpperStyle;
+  final TextStyle gridTextStyle;
   final TextStyle gridlowerStyle;
   final Color centralAxisColor;
   final TextStyle centralAxisStyle;
@@ -45,6 +46,7 @@ class LineChart extends AceWidget<AceEntity> {
     this.gridHorizontalGrids = 3,
     this.gridVerticalGrids = 3,
     this.gridUpperStyle = const TextStyle(color: Colors.red, fontSize: 8),
+    this.gridTextStyle = const TextStyle(color: Colors.black, fontSize: 8),
     this.gridlowerStyle = const TextStyle(color: Colors.green, fontSize: 8),
     this.centralAxisColor = Colors.black12,
     this.centralAxisStyle = const TextStyle(color: Colors.black45, fontSize: 8),
@@ -106,6 +108,7 @@ class LineChartState extends AceState<LineChart, AceEntity> {
         gridHorizontalGrids: widget.gridHorizontalGrids,
         gridVerticalGrids: widget.gridVerticalGrids,
         gridUpperStyle: widget.gridUpperStyle,
+        gridTextStyle: widget.gridTextStyle,
         gridlowerStyle: widget.gridlowerStyle,
         centralAxisColor: widget.centralAxisColor,
         centralAxisStyle: widget.centralAxisStyle,

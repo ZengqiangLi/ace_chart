@@ -14,6 +14,7 @@ class KChart extends AceWidget<AceEntity> {
   final double gridLineWidth;
   final int gridHorizontalGrids;
   final int gridVerticalGrids;
+  final TextStyle gridTextStyle;
   final TextStyle gridUpperStyle;
   final TextStyle gridlowerStyle;
   final TextStyle horizontalTextStyle;
@@ -45,6 +46,7 @@ class KChart extends AceWidget<AceEntity> {
     this.gridLineWidth = 0.5,
     this.gridHorizontalGrids = 3,
     this.gridVerticalGrids = 3,
+    this.gridTextStyle = const TextStyle(color: Colors.black45, fontSize: 8),
     this.gridUpperStyle = const TextStyle(color: Colors.black45, fontSize: 8),
     this.gridlowerStyle = const TextStyle(color: Colors.black45, fontSize: 8),
     this.averageLineColor = Colors.red,
@@ -104,6 +106,7 @@ class KChartState extends AceState<KChart, AceEntity> {
         gridLineWidth: widget.gridLineWidth,
         gridLineColor: widget.gridLineColor,
         gridHorizontalGrids: widget.gridHorizontalGrids,
+        gridTextStyle: widget.gridTextStyle,
         gridVerticalGrids: widget.gridVerticalGrids,
         gridUpperStyle: widget.gridUpperStyle,
         gridlowerStyle: widget.gridlowerStyle,

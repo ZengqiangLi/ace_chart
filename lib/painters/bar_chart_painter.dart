@@ -107,6 +107,7 @@ class BarChartPainter<T> extends BasePainter
       maxValue: maxValue,
       minValue: minValue,
       paddingTop: 0,
+      gridTextStyle: textStyle,
       lowerStyle: textStyle,
       upperStyle: textStyle,
     );

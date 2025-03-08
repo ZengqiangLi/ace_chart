@@ -43,6 +43,8 @@ abstract class AcePainter extends BasePainter with AceCross, AceGrid, AceLine {
   /// 网格水平分成几格
   final int gridHorizontalGrids;
 
+  final TextStyle gridTextStyle;
+
   /// 网格数值比lastClose大时展示的颜色
   final TextStyle gridUpperStyle;
 
@@ -87,6 +89,7 @@ abstract class AcePainter extends BasePainter with AceCross, AceGrid, AceLine {
     required this.gridHorizontalGrids,
     required this.gridLineWidth,
     required this.gridUpperStyle,
+    required this.gridTextStyle,
     required this.gridlowerStyle,
     required this.horizontalTextStyle,
     required this.transformTime,
@@ -136,18 +139,21 @@ abstract class AcePainter extends BasePainter with AceCross, AceGrid, AceLine {
     if (values.isEmpty) {
       return;
     }
+
     drawGridText(
-        canvas: canvas,
-        canvasHeight: contentHeight,
-        paddingTop: paddingTop,
-        canvasWidth: canvasWidth,
-        verticalGrids: gridVerticalGrids,
-        horizontalGrids: gridHorizontalGrids,
-        maxValue: maxValue,
-        minValue: minValue,
-        lastClose: lastClose,
-        upperStyle: gridUpperStyle,
-        lowerStyle: gridlowerStyle);
+      canvas: canvas,
+      canvasHeight: contentHeight,
+      paddingTop: paddingTop,
+      canvasWidth: canvasWidth,
+      verticalGrids: gridVerticalGrids,
+      horizontalGrids: gridHorizontalGrids,
+      maxValue: maxValue,
+      minValue: minValue,
+      lastClose: lastClose,
+      upperStyle: gridUpperStyle,
+      gridTextStyle: gridTextStyle,
+      lowerStyle: gridlowerStyle,
+    );
     _drawHorizontalText(canvas);
   }
 
@@ -318,7 +324,7 @@ abstract class AcePainter extends BasePainter with AceCross, AceGrid, AceLine {
         index--;
       }
       final item = values[index];
-      double x = indexToX(i) * scale; 
+      double x = indexToX(i) * scale;
       double y = valueToY(item.close);
       if (i == 0) {
         startX = 0;
