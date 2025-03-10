@@ -1,6 +1,6 @@
 import 'package:ace_chart/controllers/ace_controller.dart';
 import 'package:ace_chart/ace_consumer.dart';
-import 'package:ace_chart/gestures/DragScaleGestureDetector.dart';
+import 'package:ace_chart/gestures/drag_scale_gesture_detector.dart';
 import 'package:flutter/material.dart';
 
 class AceContainer<T extends AceController> extends StatefulWidget {

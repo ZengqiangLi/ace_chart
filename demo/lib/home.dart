@@ -32,6 +32,7 @@ class _HomeState extends State<Home> {
     maDays: [],
     useKdj: true,
   );
+
   @override
   void initState() {
     super.initState();
@@ -205,6 +206,19 @@ class _HomeState extends State<Home> {
                           height: 10,
                           margin: const EdgeInsets.symmetric(vertical: 3),
                           color: Colors.black,
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.all(20),
+                          child: SizedBox(
+                            height: 199,
+                            width: 199,
+                            child: CircularProgressIndicator(
+                              value: 0.7,
+                              strokeWidth: 10,
+                              color: Color(0xff9096FF),
+                              backgroundColor: Colors.white54,
+                            ),
+                          ),
                         ),
                       ],
                     );
