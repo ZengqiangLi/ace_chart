@@ -10,7 +10,7 @@
 ## Demo
 
 
-```
+```dart
 import 'dart:async';
 
 import 'package:ace_chart/ace_chart.dart';
@@ -257,9 +257,9 @@ class _HomeState extends State<Home> {
 
 
 
-数据1: 来源2022年某天特斯拉股票分时
+### 数据1: 来源2022年某天特斯拉股票分时
 
-```
+```dart
 import 'package:ace_chart/entitys/ace_entity.dart';
 
 List<Map<String, dynamic>> data = [
@@ -3182,9 +3182,9 @@ List<AceEntity> list = data.map((e) {
 
 ```
 
-数据2: 来源2022年特斯拉股票K线
+### 数据2: 来源2022年特斯拉股票K线
 
-```
+```dart
 import 'package:ace_chart/entitys/ace_entity.dart';
 
 List<Map<String, dynamic>> data = [
