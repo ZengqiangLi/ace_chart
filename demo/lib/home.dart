@@ -16,6 +16,8 @@ class Home extends StatefulWidget {
   State<Home> createState() => _HomeState();
 }
 
+int ii = 0;
+
 class _HomeState extends State<Home> {
   final AceStockMetricController container = AceStockMetricController(
     useVOLMA: true,
@@ -46,7 +48,6 @@ class _HomeState extends State<Home> {
       }
       i++;
     });
-    int ii = 0;
     Timer.periodic(const Duration(milliseconds: 10), (timer) {
       if (ii < list2.length) {
         container3.addValue(list2[ii]);
@@ -54,6 +55,7 @@ class _HomeState extends State<Home> {
         timer.cancel();
       }
       ii++;
+      setState(() {});
     });
   }
 
@@ -207,15 +209,15 @@ class _HomeState extends State<Home> {
                           margin: const EdgeInsets.symmetric(vertical: 3),
                           color: Colors.black,
                         ),
-                        const Padding(
-                          padding: EdgeInsets.all(20),
+                        Padding(
+                          padding: const EdgeInsets.all(20),
                           child: SizedBox(
                             height: 199,
                             width: 199,
                             child: CircularProgressIndicator(
-                              value: 0.7,
+                              value: (ii + 1) / list2.length,
                               strokeWidth: 10,
-                              color: Color(0xff9096FF),
+                              color: const Color(0xff9096FF),
                               backgroundColor: Colors.white54,
                             ),
                           ),
