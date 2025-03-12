@@ -5,7 +5,7 @@
 
 ## Screenshot
 
-![截图](./20250312095439.jpg)
+![截图](https://github.com/ZengqiangLi/ace_chart/raw/main/20250312095439.jpg)
 
 ## Demo
 
