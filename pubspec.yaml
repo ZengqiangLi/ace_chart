@@ -1,7 +1,8 @@
 name: ace_chart
-description: ace_chart
+description: 股票K线图/分时图/vol图/mac的图/双极图
 version: 0.0.1
-homepage: /
+homepage: https://github.com/ZengqiangLi/ace_chart
+repository: https://github.com/ZengqiangLi/ace_chart
 
 environment:
   sdk: ^3.5.3
@@ -15,6 +16,15 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+
+topics:
+  - chart
+  - k-chart
+  - line-chart
+  - vol-chart
+  - macd-char
+  - stock-chart
+  - ace_chart
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
