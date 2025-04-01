@@ -39,7 +39,78 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-    container.addAll(list);
+    container.addAll([
+      AceEntity(
+        flow: -105.29,
+        open: 0,
+        high: 0,
+        low: 0,
+        close: 1,
+        volume: 0,
+        time: DateTime.now().millisecondsSinceEpoch,
+        amount: 0,
+      ),
+      AceEntity(
+        flow: -571.67,
+        open: 0,
+        high: 0,
+        low: 0,
+        close: 2,
+        volume: 0,
+        time: DateTime.now().millisecondsSinceEpoch,
+        amount: 0,
+      ),
+      AceEntity(
+        flow: -291.83,
+        open: 0,
+        high: 0,
+        low: 0,
+        close: 3,
+        volume: 0,
+        time: DateTime.now().millisecondsSinceEpoch,
+        amount: 0,
+      ),
+      AceEntity(
+        flow: 748,
+        open: 0,
+        high: 0,
+        low: 0,
+        close: 4,
+        volume: 0,
+        time: DateTime.now().millisecondsSinceEpoch,
+        amount: 0,
+      ),
+      AceEntity(
+        flow: -1127.32,
+        open: 0,
+        high: 0,
+        low: 0,
+        close: 5,
+        volume: 0,
+        time: DateTime.now().millisecondsSinceEpoch,
+        amount: 0,
+      ),
+      AceEntity(
+        flow: 99.98,
+        open: 0,
+        high: 0,
+        low: 0,
+        close: 6,
+        volume: 0,
+        time: DateTime.now().millisecondsSinceEpoch,
+        amount: 0,
+      ),
+      AceEntity(
+        flow: 591.36,
+        open: 0,
+        high: 0,
+        low: 0,
+        close: 7,
+        volume: 0,
+        time: DateTime.now().millisecondsSinceEpoch,
+        amount: 0,
+      ),
+    ]);
     container3.addAll(list2);
   }
 

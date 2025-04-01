@@ -39,6 +39,8 @@ class BipolarChartPainter<T> extends BarChartPainter<T> {
   @override
   void onCompute(Size size) {
     super.onCompute(size);
+    minValue*=1.3;
+    maxValue*=1.3;
     zeroLineY = canvasHeight / 2;
     ratio = zeroLineY / math.max(minValue.abs(), maxValue.abs());
   }
@@ -53,9 +55,7 @@ class BipolarChartPainter<T> extends BarChartPainter<T> {
   @override
   double valueToY(double value) {
     double v = zeroLineY - value * ratio;
-    if (showValueText) {
-      return v + (value > 0 ? valueTextFontSize : -valueTextFontSize)*2;
-    }
+    
     return v;
   }
 
