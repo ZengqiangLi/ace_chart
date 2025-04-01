@@ -5838,16 +5838,18 @@ List<Map<String, dynamic>> data = [
   }
 ];
 
-List<AceEntity> list2 = data.map((e) {
+List<AceEntity> list2 = List.generate(data.length, (index) {
+  final e = data[index];
   return AceEntity(
-      open: double.parse("${e['o']}"),
-      high: double.parse("${e['h']}"),
-      low: double.parse("${e['l']}"),
-      close: double.parse("${e['c']}"),
-      volume: int.parse(e['v'].toString()).toDouble(),
-      amount: 0,
-      time: (e['te']));
-}).toList();
+    open: double.parse("${e['o']}"),
+    high: double.parse("${e['h']}"),
+    low: double.parse("${e['l']}"),
+    close: double.parse("${e['c']}"),
+    volume: int.parse(e['v'].toString()).toDouble(),
+    amount: 0,
+    time: (e['te']),
+  );
+});
 List<double> bipolars = List.generate(list2.length, (index) {
   double v = list2[index].volume;
   if (index % 3 == 0) {

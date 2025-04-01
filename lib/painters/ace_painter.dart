@@ -119,7 +119,7 @@ abstract class AcePainter extends BasePainter with AceCross, AceGrid, AceLine {
 
   void _drawChart(Canvas canvas) {
     canvas.save();
-    canvas.clipRect(Rect.fromLTWH(0, 0, canvasWidth, contentHeight));
+    canvas.clipRect(Rect.fromLTWH(0, 0, canvasWidth, canvasHeight));
     canvas.translate(scrollX, 0);
     onDrawCart(canvas);
     canvas.restore();
@@ -245,7 +245,7 @@ abstract class AcePainter extends BasePainter with AceCross, AceGrid, AceLine {
     drawCrossLine(
         canvas: canvas,
         canvasWidth: canvasWidth,
-        canvasHeight: contentHeight,
+        canvasHeight: canvasHeight,
         scrollX: scrollX,
         scale: scale,
         dx: dx,
@@ -300,12 +300,13 @@ abstract class AcePainter extends BasePainter with AceCross, AceGrid, AceLine {
   }
 
   /// 绘制曲线图
-  void drawLineCart(
-      {required Canvas canvas,
-      required int maxLength,
-      required double strokeWidth,
-      required Color lineColor,
-      Shader? chartShader}) {
+  void drawLineCart({
+    required Canvas canvas,
+    required int maxLength,
+    required double strokeWidth,
+    required Color lineColor,
+    Shader? chartShader,
+  }) {
     if (getValues().isEmpty) {
       return;
     }
@@ -388,8 +389,13 @@ abstract class AcePainter extends BasePainter with AceCross, AceGrid, AceLine {
       clipPath.lineTo(startX, canvasHeight);
       clipPath.close();
       canvas.clipPath(clipPath);
+
       var rect = Rect.fromLTWH(
-          0, valueToY(_clipTopValue), canvasWidth * scale, canvasHeight);
+        0,
+        valueToY(_clipTopValue),
+        (values.length * (pointWidth + pointSpace)) * scale,
+        canvasHeight,
+      );
       canvas.drawRect(rect, _bezierFillPaint);
       canvas.restore();
     }

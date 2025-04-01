@@ -8,6 +8,7 @@ export 'package:ace_chart/charts/k_chart.dart';
 export 'package:ace_chart/charts/line_chart.dart';
 export 'package:ace_chart/charts/macd_chart.dart';
 export 'package:ace_chart/charts/vol_chart.dart';
+export 'package:ace_chart/charts/capital_flow_chart.dart';
 
 export 'package:ace_chart/ace_container.dart';
 export 'package:ace_chart/controllers/ace_stock_metric_controller.dart';

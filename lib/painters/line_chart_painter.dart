@@ -6,6 +6,7 @@ class LineChartPainter extends AcePainter {
   final int maxLength;
   final double strokeWidth;
   final Color lineColor;
+  final bool useShader;
 
   /// 中轴线颜色
   final Color centralAxisColor;
@@ -15,6 +16,7 @@ class LineChartPainter extends AcePainter {
   late double _radio;
   LineChartPainter({
     required this.maxLength,
+    this.useShader = true,
     required super.values,
     required super.scrollX,
     required super.scale,
@@ -93,12 +95,15 @@ class LineChartPainter extends AcePainter {
 
   @override
   void onDraw(Canvas canvas) {
-    chartShader ??= LinearGradient(
-      begin: Alignment.topCenter,
-      end: Alignment.bottomCenter,
-      tileMode: TileMode.clamp,
-      colors: [lineColor.withOpacity(0.2), lineColor.withOpacity(0.05)],
-    ).createShader(Rect.fromLTRB(0, 0, canvasWidth, contentHeight));
+    if (useShader) {
+      chartShader ??= LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        tileMode: TileMode.clamp,
+        colors: [lineColor.withOpacity(0.2), lineColor.withOpacity(0.05)],
+      ).createShader(Rect.fromLTRB(0, 0, canvasWidth, contentHeight));
+    }
+
     drawCentralAxis(canvas);
 
     super.onDraw(canvas);
@@ -134,10 +139,11 @@ class LineChartPainter extends AcePainter {
   @override
   void onDrawCart(Canvas canvas) {
     drawLineCart(
-        canvas: canvas,
-        maxLength: maxLength,
-        strokeWidth: strokeWidth,
-        lineColor: lineColor,
-        chartShader: chartShader);
+      canvas: canvas,
+      maxLength: maxLength,
+      strokeWidth: strokeWidth,
+      lineColor: lineColor,
+      chartShader: chartShader,
+    );
   }
 }

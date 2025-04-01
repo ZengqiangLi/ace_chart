@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 
 class LineChart extends AceWidget<AceEntity> {
   final double paddingTop;
+  final bool useShader;
   final Color lineColor;
   final double lastClose;
   final double strokeWidth;
@@ -36,6 +37,7 @@ class LineChart extends AceWidget<AceEntity> {
   LineChart({
     super.key,
     super.child,
+    this.useShader = true,
     required this.lastClose,
     required this.transformTime,
     this.paddingTop = 0,
@@ -89,6 +91,7 @@ class LineChartState extends AceState<LineChart, AceEntity> {
     }
 
     final painter = LineChartPainter(
+        useShader: widget.useShader,
         transformTime: widget.transformTime,
         maxLength: data.maxLength,
         pointSpace: data.getSpace(),

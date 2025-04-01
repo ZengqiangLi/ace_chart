@@ -55,7 +55,7 @@ class MacdChartPainter extends BipolarChartPainter<AceEntity> {
       maxValue = [maxDif, maxDea, maxValue].reduce(math.max);
 
       ratio = zeroLineY / math.max(minValue.abs(), maxValue.abs());
-    }
+    } 
   }
 
   @override

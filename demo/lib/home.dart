@@ -1,9 +1,8 @@
-import 'dart:async';
-
 import 'package:ace_chart/ace_chart.dart';
 import 'package:demo/data.dart';
 import 'package:demo/data2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 const Color backgroundColor = Color(0xff151924);
 const Color textColor = Colors.white;
@@ -30,7 +29,9 @@ class _HomeState extends State<Home> {
   final AceStockMetricController container3 = AceStockMetricController(
     useVOLMA: true,
     useMACD: true,
-    maxLength: list2.length,
+    maxLength: 1,
+    pointWidth: 1,
+    pointSpace: 1,
     maDays: [],
     useKdj: true,
   );
@@ -38,25 +39,8 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-    int i = 60;
-    container.addAll(list.sublist(0, i));
-    Timer.periodic(const Duration(milliseconds: 10), (timer) {
-      if (i < list.length) {
-        container.addValue(list[i]);
-      } else {
-        timer.cancel();
-      }
-      i++;
-    });
-    Timer.periodic(const Duration(milliseconds: 10), (timer) {
-      if (ii < list2.length) {
-        container3.addValue(list2[ii]);
-      } else {
-        timer.cancel();
-      }
-      ii++;
-      setState(() {});
-    });
+    container.addAll(list);
+    container3.addAll(list2);
   }
 
   @override
@@ -80,9 +64,14 @@ class _HomeState extends State<Home> {
                 builder: (context) {
                   return Column(
                     children: [
+                      Container(
+                        height: 10,
+                        color: Colors.black,
+                      ),
                       SizedBox(
                         height: 150,
                         child: LineChart(
+                          useShader: true,
                           transformTime: (time) {
                             return millisToHM(time);
                           },
@@ -209,17 +198,22 @@ class _HomeState extends State<Home> {
                           margin: const EdgeInsets.symmetric(vertical: 3),
                           color: Colors.black,
                         ),
-                        Padding(
-                          padding: const EdgeInsets.all(20),
-                          child: SizedBox(
-                            height: 199,
-                            width: 199,
-                            child: CircularProgressIndicator(
-                              value: (ii + 1) / list2.length,
-                              strokeWidth: 10,
-                              color: const Color(0xff9096FF),
-                              backgroundColor: Colors.white54,
+                        SizedBox(
+                          height: 80,
+                          child: CapitalFlowChart(
+                            textStyle: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 8,
                             ),
+                            valueTextFontSize: 8,
+                            showText: false,
+                            transformBarStyle: (item) {
+                              if (item.flow < 0) {
+                                return BarStyle.upper;
+                              } else {
+                                return BarStyle.lower;
+                              }
+                            },
                           ),
                         ),
                       ],

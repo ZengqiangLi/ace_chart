@@ -22,6 +22,9 @@ class AceEntity {
   /// 时间 09:31
   final int time;
 
+  /// 资金流动,正负
+  final double flow;
+
   /// 移动平均线
   List<double>? mas;
 
@@ -42,15 +45,17 @@ class AceEntity {
   double? d;
   double? j;
 
-  AceEntity(
-      {this.index = 0,
-      required this.open,
-      required this.high,
-      required this.low,
-      required this.close,
-      required this.volume,
-      required this.time,
-      required this.amount});
+  AceEntity({
+    this.index = 0,
+    this.open = 0,
+    this.high = 0,
+    this.low = 0,
+    this.close = 0,
+    this.volume = 0,
+    this.time = 0,
+    this.amount = 0,
+    this.flow = 0,
+  });
 
   AceEntity copyWith({required int index, required int time}) {
     AceEntity entity = AceEntity(

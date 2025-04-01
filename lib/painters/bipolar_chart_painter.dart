@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
 import 'package:ace_chart/painters/bar_chart_painter.dart';
+
 // 双极图
 class BipolarChartPainter<T> extends BarChartPainter<T> {
   late double ratio;
@@ -31,6 +32,8 @@ class BipolarChartPainter<T> extends BarChartPainter<T> {
     required super.textStyle,
     super.pressOffset,
     required super.showText,
+    super.showValueText,
+    super.valueTextFontSize,
   });
 
   @override
@@ -49,24 +52,30 @@ class BipolarChartPainter<T> extends BarChartPainter<T> {
 
   @override
   double valueToY(double value) {
-    return zeroLineY - value * ratio;
+    double v = zeroLineY - value * ratio;
+    if (showValueText) {
+      return v + (value > 0 ? valueTextFontSize : -valueTextFontSize)*2;
+    }
+    return v;
   }
 
   @override
-  void drawHistogram(
-      {required Canvas canvas,
-      required PaintingStyle style,
-      required double strokeWidth,
-      required double scale,
-      required Color color,
-      required Rect rect}) {
+  void drawHistogram({
+    required Canvas canvas,
+    required PaintingStyle style,
+    required double strokeWidth,
+    required double scale,
+    required Color color,
+    required Rect rect,
+  }) {
     Rect nr = Rect.fromLTRB(rect.left, rect.top, rect.right, canvasHeight / 2);
     super.drawHistogram(
-        canvas: canvas,
-        style: style,
-        strokeWidth: strokeWidth,
-        scale: scale,
-        color: color,
-        rect: nr);
+      canvas: canvas,
+      style: style,
+      strokeWidth: strokeWidth,
+      scale: scale,
+      color: color,
+      rect: nr,
+    );
   }
 }

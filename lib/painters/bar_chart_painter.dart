@@ -17,6 +17,8 @@ class BarChartPainter<T> extends BasePainter
   final PaintingStyle lowerStyle;
   final TextStyle textStyle;
   final bool showText;
+  final bool showValueText;
+  final double valueTextFontSize;
 
   /// 网格线颜色
   final Color gridLineColor;
@@ -39,6 +41,8 @@ class BarChartPainter<T> extends BasePainter
   late double _radio;
   BarChartPainter({
     required this.values,
+    this.showValueText = false,
+    this.valueTextFontSize = 0,
     required super.paddingTop,
     required super.scrollX,
     required super.scale,
@@ -83,14 +87,15 @@ class BarChartPainter<T> extends BasePainter
   @override
   void onDraw(Canvas canvas) {
     drawGrid(
-        canvas: canvas,
-        canvasHeight: canvasHeight,
-        canvasWidth: canvasWidth,
-        paddingTop: 0,
-        verticalGrids: gridVerticalGrids,
-        horizontalGrids: gridHorizontalGrids,
-        strokeWidth: gridLineWidth,
-        lineColor: gridLineColor);
+      canvas: canvas,
+      canvasHeight: canvasHeight,
+      canvasWidth: canvasWidth,
+      paddingTop: 0,
+      verticalGrids: gridVerticalGrids,
+      horizontalGrids: gridHorizontalGrids,
+      strokeWidth: gridLineWidth,
+      lineColor: gridLineColor,
+    );
     drawChart(canvas);
     if (showText) {
       drawText(canvas);
@@ -137,14 +142,33 @@ class BarChartPainter<T> extends BasePainter
           color = fairColor;
           style = fairStyle;
         }
+        if (showValueText) {}
 
         drawHistogram(
-            canvas: canvas,
-            scale: scale,
-            style: style,
-            strokeWidth: strokeWidth,
-            rect: Rect.fromLTRB(x, y, x + _width * scale, canvasHeight),
-            color: color);
+          canvas: canvas,
+          scale: scale,
+          style: style,
+          strokeWidth: strokeWidth,
+          rect: Rect.fromLTRB(x, y, x + _width * scale, contentHeight),
+          color: color,
+        );
+        if (showValueText) {
+          double size = valueTextFontSize;
+          if (scale < 1) {
+            size = size * scale;
+          }
+          TextPainter painter = createText(
+            text: '$value',
+            style: TextStyle(color: color, fontSize: size),
+          );
+
+          if (value > 0) {
+            y -= painter.height;
+          }
+          x = x + (_width * scale/2) - painter.width/2;
+
+          painter.paint(canvas, Offset(x, y));
+        }
       }
     }
 
@@ -164,15 +188,16 @@ class BarChartPainter<T> extends BasePainter
 
     dx = indexToX(index) + bw;
     drawCrossLine(
-        canvas: canvas,
-        canvasWidth: canvasWidth,
-        canvasHeight: canvasHeight,
-        scrollX: scrollX,
-        scale: scale,
-        dx: dx,
-        dy: -10,
-        strokeWidth: crossLineWidth,
-        color: crossLineColor);
+      canvas: canvas,
+      canvasWidth: canvasWidth,
+      canvasHeight: canvasHeight,
+      scrollX: scrollX,
+      scale: scale,
+      dx: dx,
+      dy: -10,
+      strokeWidth: crossLineWidth,
+      color: crossLineColor,
+    );
   }
 
   @override
@@ -183,7 +208,12 @@ class BarChartPainter<T> extends BasePainter
 
   @override
   double valueToY(double value) {
-    return canvasHeight - (value) * _radio;
+    double v = contentHeight - (value) * _radio;
+    if (showValueText) {
+      return v + valueTextFontSize*2;
+    }
+
+    return v;
   }
 
   double getRealItemWidth() {
